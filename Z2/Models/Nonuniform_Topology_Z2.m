@@ -8,16 +8,14 @@
 %% p: the probability of connecting a pair of vertices. G([n],E) is Erdos-Renyi graph G(n,p).
 %% p_node_crpt: the probability of corrupting a node
 %% p_node_edge: the probability of corrupting an edge
-%% sigma_in: the noise level for inliers
-%% sigma_out: the noise level for outliers
-%% crpt_type (optional): choose 'uniform' or 'self-consistent', or 'adv'. The default choice is 'uniform'.
+%% crpt_type (optional): choose 'uniform' or 'adv'. The default choice is 'uniform'.
 
 %% Output:
 %% model_out.AdjMat: n by n adjacency matrix of the generated graph
 %% model_out.Ind: edge_num by 2 "edge indices matrix". Each row is the index of an edge (i,j). edge_num is the number of edges.
 %% model_out.zij: vector that stores the given group ratios
-%% model_out.zij_orig: vector that stores the ground truth relative rotations
-%% model_out.z_orig: vector that stores the ground truth absolute rotations
+%% model_out.zij_orig: vector that stores the ground truth group ratios
+%% model_out.z_orig: vector that stores the ground truth absolute group elements
 %% model_out.ErrVec: the true corruption level of each edge
 %% Reference
 %% [1] Gilad Lerman and Yunpeng Shi. "Robust Group Synchronization via Cycle-Edge Message Passing", Foundations of Computational Mathematics, 2021.
