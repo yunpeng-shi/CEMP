@@ -5,7 +5,7 @@ Download matlab files to the same directory. Checkout and run the following demo
 ```
 Examples/Compare_algorithms_Z2.m
 ```
-The following is a sample output under Nonuniform and Adversarial corruption, which shows great advantage of CEMP:
+The following is a sample output under nonuniform corruption, which shows great advantage of CEMP:
 
 ```
 Algorithms    MeanError
