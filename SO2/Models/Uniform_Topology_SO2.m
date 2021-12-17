@@ -21,7 +21,7 @@
 %% [1] Gilad Lerman and Yunpeng Shi. "Robust Group Synchronization via Cycle-Edge Message Passing", Foundations of Computational Mathematics, 2021.
 
 
-function[model_out]=Uniform_Topology_SO2(n,p,q,crpt_type)
+function[model_out]=Uniform_Topology_SO2(n,p,q,sigma,crpt_type)
     if ~exist('crpt_type','var')
         crpt_type = 'uniform';
     end
@@ -75,7 +75,7 @@ function[model_out]=Uniform_Topology_SO2(n,p,q,crpt_type)
     
     model_out.AdjMat = AdjMat;
     model_out.Ind = Ind;
-    model_out.thteaij = thetaij;
+    model_out.thetaij = thetaij;
     model_out.thteaij_orig = thetaij_orig;
     model_out.theta_orig = theta_orig;
     model_out.ErrVec = ErrVec;
