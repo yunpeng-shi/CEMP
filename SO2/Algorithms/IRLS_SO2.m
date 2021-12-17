@@ -11,11 +11,14 @@
 %% theta_est: Estimated group element
 
 
-function theta_est = IRLS_SO2(Ind,thetaij)
+function theta_est = IRLS_SO2(Ind,thetaij,niter)
               
     Ind_i = Ind(:,1);
     Ind_j = Ind(:,2);
+    m = length(Ind_i);
     n=max(Ind,[],'all');       
+    AdjMat = sparse(Ind_i,Ind_j,1,n,n); % Adjacency matrix
+    AdjMat = full(AdjMat + AdjMat');
     thetaijMat1 = sparse(Ind_i,Ind_j,thetaij,n,n);
     thetaijMat1 = thetaijMat1 - thetaijMat1';
     aijMat = exp(1i*thetaijMat1).*AdjMat;

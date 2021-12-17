@@ -1,5 +1,4 @@
 %% Author: Yunpeng Shi
-%%
 %%------------------------------------------------
 %% Cycle-Edge Message Passing for Angular Synchronization
 %%------------------------------------------------

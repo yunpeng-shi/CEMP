@@ -15,7 +15,10 @@ function theta_est = Spectral_SO2(Ind,thetaij)
               
     Ind_i = Ind(:,1);
     Ind_j = Ind(:,2);
+    
     n=max(Ind,[],'all');       
+    AdjMat = sparse(Ind_i,Ind_j,1,n,n); % Adjacency matrix
+    AdjMat = full(AdjMat + AdjMat');
     thetaijMat1 = sparse(Ind_i,Ind_j,thetaij,n,n);
     thetaijMat1 = thetaijMat1 - thetaijMat1';
     aijMat = exp(1i*thetaijMat1).*AdjMat;

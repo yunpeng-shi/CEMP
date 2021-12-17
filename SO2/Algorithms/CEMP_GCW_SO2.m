@@ -12,7 +12,7 @@
 
 
 %% Output:
-%% SVec: Estimated corruption levels of all edges
+%% theta_est: Estimated absolute group elements (angles)
 
 %% Reference
 %% [1] Gilad Lerman and Yunpeng Shi. "Robust Group Synchronization via Cycle-Edge Message Passing", Foundations of Computational Mathematics, 2021.
