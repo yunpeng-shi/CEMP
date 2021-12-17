@@ -161,9 +161,9 @@ function[theta_est] = CEMP_MST_SO2(Ind,thetaij,parameters)
             for node_leaf=leaves
                 edge_leaf = IndMat_sign(node_leaf,node_root);
                 if edge_leaf>0
-                    theta_est(node_leaf)= thetaij(abs(edge_leaf)) + theta_est(node_root);
+                    theta_est(node_leaf)= mod(thetaij(abs(edge_leaf)) + theta_est(node_root)+2*pi, 2*pi);
                 else
-                    theta_est(node_leaf)= - thetaij(abs(edge_leaf)) + theta_est(node_root);
+                    theta_est(node_leaf)= mod(-thetaij(abs(edge_leaf)) + theta_est(node_root)+2*pi, 2*pi);
                 end
                 added(node_leaf)=1;
             end
