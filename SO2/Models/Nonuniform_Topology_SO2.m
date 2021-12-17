@@ -54,6 +54,7 @@ function[model_out]=Nonuniform_Topology_SO2(n,p, p_node_crpt, p_edge_crpt, sigma
     n_node_crpt = floor(n*p_node_crpt);
     node_crpt = node_crpt(1:n_node_crpt);
     crptInd = false(1,m);
+    theta_0 = 2*pi*rand(1,m);
     
     
     for i = node_crpt
@@ -68,13 +69,13 @@ function[model_out]=Nonuniform_Topology_SO2(n,p, p_node_crpt, p_edge_crpt, sigma
 
             k = IndMat(i,j);
             crptInd(abs(k))=1; 
-            theta_0 = 2*pi*rand(1,n);
+            
 
             if strcmp(crpt_type,'uniform')
                 if k>0
-                    thetaij(k)= theta_0;    
+                    thetaij(k)= theta_0(k);
                 else
-                    thetaij(k)= -theta_0;
+                    thetaij(-k)= -theta_0(-k);
                 end
 
             end
@@ -105,10 +106,10 @@ function[model_out]=Nonuniform_Topology_SO2(n,p, p_node_crpt, p_edge_crpt, sigma
     noiseInd = ~crptInd;
     % indices of corrupted edges
     thetaij(noiseInd)= ...
-    thetaij(:,:,noiseInd)+sigma_in*randn(1,sum(noiseInd)); % add noise
+    thetaij(noiseInd)+sigma_in*randn(1,sum(noiseInd)); % add noise
 
-    thetaij(:,:,crptInd)= ...
-    thetaij(:,:,crptInd)+sigma_out*randn(1,sum(crptInd)); % add noise
+    thetaij(crptInd)= ...
+    thetaij(crptInd)+sigma_out*randn(1,sum(crptInd)); % add noise
    
 
     thetaij = mod(thetaij+2*pi, 2*pi);
@@ -119,8 +120,8 @@ function[model_out]=Nonuniform_Topology_SO2(n,p, p_node_crpt, p_edge_crpt, sigma
     
     model_out.AdjMat = AdjMat;
     model_out.Ind = Ind;
-    model_out.thteaij = thetaij;
-    model_out.thteaij_orig = thetaij_orig;
+    model_out.thetaij = thetaij;
+    model_out.thetaij_orig = thetaij_orig;
     model_out.theta_orig = theta_orig;
     model_out.ErrVec = ErrVec;
     
