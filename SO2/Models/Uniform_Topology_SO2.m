@@ -76,7 +76,7 @@ function[model_out]=Uniform_Topology_SO2(n,p,q,sigma,crpt_type)
     model_out.AdjMat = AdjMat;
     model_out.Ind = Ind;
     model_out.thetaij = thetaij;
-    model_out.thteaij_orig = thetaij_orig;
+    model_out.thetaij_orig = thetaij_orig;
     model_out.theta_orig = theta_orig;
     model_out.ErrVec = ErrVec;
     
