@@ -26,8 +26,8 @@ parameters.rate = 1.2;
 % run Spectral
 theta_SP = Spectral_SO2(Ind, thetaij);
 
-% run SDP  %this is commented out in case cvx is not installed
-%theta_SDP = SDP_SO2(Ind, thetaij);
+% run SDP  
+theta_SDP = SDP_SO2(Ind, thetaij); %commented this out if cvx is not installed
 
 % run IRLS
 niter = 100;
@@ -40,21 +40,22 @@ theta_CEMP_MST = CEMP_MST_SO2(Ind, thetaij, parameters);
 theta_CEMP_GCW = CEMP_GCW_SO2(Ind, thetaij, parameters);
 
 [mean_error_SP] = evaluate_error_SO2(theta_SP, thetaij_orig, Ind);
-%[mean_error_SDP] = evaluate_error_SO2(theta_SDP, thetaij_orig, Ind);
+[mean_error_SDP] = evaluate_error_SO2(theta_SDP, thetaij_orig, Ind);
 [mean_error_IRLS] = evaluate_error_SO2(theta_IRLS, thetaij_orig, Ind);
 [mean_error_CEMP_MST] = evaluate_error_SO2(theta_CEMP_MST, thetaij_orig, Ind);
 [mean_error_CEMP_GCW] = evaluate_error_SO2(theta_CEMP_GCW, thetaij_orig, Ind);
 
 
 % Report estimation error
-sz = [4 2];
+sz = [5 2];
 varTypes = {'string','double'};
 varNames = {'Algorithms','MeanError'};
 Results = table('Size',sz,'VariableTypes',varTypes, 'VariableNames',varNames);
 Results(1,:)={'Spectral', mean_error_SP};
-Results(2,:)={'IRLS', mean_error_IRLS};
-Results(3,:)={'CEMP+MST', mean_error_CEMP_MST};
-Results(4,:)={'CEMP+GCW', mean_error_CEMP_GCW};
+Results(2,:)={'SDP', mean_error_SDP};
+Results(3,:)={'IRLS', mean_error_IRLS};
+Results(4,:)={'CEMP+MST', mean_error_CEMP_MST};
+Results(5,:)={'CEMP+GCW', mean_error_CEMP_GCW};
 
 
 
