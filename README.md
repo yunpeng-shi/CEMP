@@ -22,8 +22,11 @@ For other possible usage of CEMP, see repo (https://github.com/yunpeng-shi/MPLS)
 
 ## A variety of Groups
 ``Z2`` folder is for Z2-synchronization with applications in correlation clustering.
+
 ``SO2`` folder is for angular synchronization (SO(2) group). The metric of CEMP is chosen as geodesic distance in U(1).
+
 ``SO3`` folder is for rotation synchronization (SO(3) group), or rotation averaging. The metric of CEMP is chosen as geodesic distance in SO(3).
+
 ``SOd`` folder is for rotation synchronization (SO(d) group). The metric of CEMP is chosen as the difference in Frobenius norm.
 
 
