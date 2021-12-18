@@ -3,7 +3,7 @@ rng(1);
 % n=100; p=0.5; q=0.6; sigma=0; crpt_type='uniform';
 
 % use the following commented line to generate data with uniform topology
-% model_out = Uniform_Topology(n,p,q,sigma,crpt_type);
+% model_out = Uniform_Topology_SO3(n,p,q,sigma,crpt_type);
 
 
 % The following code is for nonuniform topology. This is a more malicious
@@ -12,7 +12,7 @@ rng(1);
 
 % parameters with nonuniform topology
 n=100; p=0.5; p_node_crpt=0.5; p_edge_crpt=0.75; sigma_in=0; sigma_out=2; crpt_type='self-consistent';
-model_out = Nonuniform_Topology(n,p, p_node_crpt,p_edge_crpt, sigma_in, sigma_out, crpt_type);
+model_out = Nonuniform_Topology_SO3(n,p, p_node_crpt,p_edge_crpt, sigma_in, sigma_out, crpt_type);
 
 Ind = model_out.Ind; % matrix of edge indices (m by 2)
 RijMat = model_out.RijMat; % given corrupted and noisy relative rotations
