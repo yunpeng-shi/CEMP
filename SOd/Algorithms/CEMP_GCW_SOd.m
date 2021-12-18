@@ -10,16 +10,15 @@
 %% CEMP_parameters.reweighting: the sequence of reweighting parameter beta_t
 %% 
 %% Output:
-%% SVec: Estimated corruption levels of all edges
+%% R_est: Estimated corruption levels of all edges
 
 %% Reference
 %% [1] Gilad Lerman and Yunpeng Shi. "Robust Group Synchronization via Cycle-Edge Message Passing" arXiv preprint, 2019
-%% [2] Yunpeng Shi and Gilad Lerman. "Message Passing Least Squares Framework and its Application to Rotation Synchronization" ICML 2020.
 
 
 
 
-function[SVec] = CEMP_SOd(Ind,RijMat,parameters)
+function R_est = CEMP_GCW_SOd(Ind,RijMat,parameters)
 
     d = size(RijMat,1);
     %CEMP parameters
@@ -156,6 +155,38 @@ function[SVec] = CEMP_SOd(Ind,RijMat,parameters)
         beta = beta*rate;   
         iter = iter+1;
         
+    end
+
+    mat_size = ones(1,n)*d;
+    cum_ind = [0,cumsum(mat_size)];
+    Rij_blk = zeros(n*d);
+    for k = 1:m
+       i = Ind_i(k); j=Ind_j(k);
+       Rij_blk((cum_ind(i)+1):cum_ind(i+1), (cum_ind(j)+1):cum_ind(j+1))= RijMat(:,:,k);    
+    end
+    
+    Rij_blk = Rij_blk+Rij_blk';
+    
+    %%% Spectral 
+    beta_T = beta/rate;
+    SMat = sparse(Ind_i, Ind_j, SVec, n, n);
+    SMat = SMat + SMat';
+    Weights = exp(-beta_T.*SMat).*AdjMat;
+    Weights = diag(1./sum(Weights,2))*Weights;
+    Weights = kron(Weights, ones(d));    
+    RijW = Rij_blk.*Weights;
+    clear 'Rij_blk';
+    
+    
+    [V,~] = eigs(RijW,d,'la');
+    V(:,1) = V(:,1)*sign(det(V(1:d,:))); % ensure det = 1
+    R_est = zeros(d,d,n);
+    for i=1:n
+       Ri = V((cum_ind(i)+1):cum_ind(i+1), :); 
+       [Ur,~,Vr] = svd(Ri);
+       S0 = diag([ones(1,d-1),det(Ur*Vr')]);
+       R_est(:,:,i) = Ur*S0*Vr';
+       
     end
 
 

@@ -10,16 +10,15 @@
 %% CEMP_parameters.reweighting: the sequence of reweighting parameter beta_t
 %% 
 %% Output:
-%% SVec: Estimated corruption levels of all edges
+%% R_est: Estimated corruption levels of all edges
 
 %% Reference
 %% [1] Gilad Lerman and Yunpeng Shi. "Robust Group Synchronization via Cycle-Edge Message Passing" arXiv preprint, 2019
-%% [2] Yunpeng Shi and Gilad Lerman. "Message Passing Least Squares Framework and its Application to Rotation Synchronization" ICML 2020.
 
 
 
 
-function[SVec] = CEMP_SOd(Ind,RijMat,parameters)
+function R_est = CEMP_MST_SOd(Ind,RijMat,parameters)
 
     d = size(RijMat,1);
     %CEMP parameters
@@ -133,8 +132,9 @@ function[SVec] = CEMP_SOd(Ind,RijMat,parameters)
     iter = 0;
     
     SVec = S0_vec;
-    beta = beta_init;
 
+    beta = beta_init;
+    
     while beta <= beta_max
          
         
@@ -156,6 +156,35 @@ function[SVec] = CEMP_SOd(Ind,RijMat,parameters)
         beta = beta*rate;   
         iter = iter+1;
         
+    end
+
+    disp('Building minimum spanning tree ...')
+    SMatij = sparse(Ind_j,Ind_i,SVec+1,n,n);
+    [MST,~]=graphminspantree(SMatij);
+    AdjTree = logical(MST+MST');
+    
+    % compute Ri by multiplying Rij along the spanning tree
+    rootnodes = 1;
+    added=zeros(1,n);
+    R_est = zeros(d,d,n);
+    R_est(:,:,rootnodes)=eye(d);
+    added(rootnodes)=1;
+    newroots = [];
+    while sum(added)<n
+        for node_root = rootnodes
+            leaves = find((AdjTree(node_root,:).*(1-added))==1);
+            newroots = [newroots, leaves];
+            for node_leaf=leaves
+                edge_leaf = IndMat(node_leaf,node_root);
+                if edge_leaf>0
+                    R_est(:,:,node_leaf)=RijMat(:,:,abs(edge_leaf))*R_est(:,:,node_root);
+                else
+                    R_est(:,:,node_leaf)=(RijMat(:,:,abs(edge_leaf)))'*R_est(:,:,node_root);
+                end
+                added(node_leaf)=1;
+            end
+        end
+        rootnodes = newroots;
     end
 
 
