@@ -2,7 +2,7 @@
 
 ## CEMP Has Broad Applications
 
-Cycle-edge message passing (CEMP) is a very useful algorithm for robust group synchronization (GS). Examples of GS problem include ``correlation clustering`` (Z2 group), ``phase synchronization`` (SO(2) group), ``rotation averaging`` (SO(3) group), and ``multi-object matching`` (Sn group).
+Cycle-edge message passing (CEMP) is a very useful algorithm for robust group synchronization (GS). Examples of GS problem include ``correlation clustering`` (Z2 group), ``phase/angular synchronization`` (SO(2) group), ``rotation averaging`` (SO(3) group), and ``multi-object matching`` (Sn group).
 
 The GS problem asks to recover group elements <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{g_{i}^*}"> (star means ground truth) from their noisy/corrupted relative measurements <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{g_{ij}}"> (ideally equals to <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{g_{i}^*g_{j}^{*-1}}">).
 
@@ -11,7 +11,7 @@ CEMP not only classifies the clean and corrupted relative measurements (group ra
 ## CEMP Offers Various Ways for Solving Group Sync
 After estimating corruption levels <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{s_{ij}^* = d(g_{ij}, g_{ij}^*)}">, there are two ways to estimate the absolute group elements <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{g_{i}^*}">:
 
-First, one can build a weighted graph using the estimated corruption levels, and find its minimum spanning tree (MST) so that its the cleanest spanning tree. Then, one can fix the first group element as identity, and find the rest of them by subsequently multiplying group ratios along the spanning tree.
+First, one can build a weighted graph using the estimated corruption levels, and find its minimum spanning tree (MST) so that it's the cleanest spanning tree. Then, one can fix the first group element as identity, and find the rest of them by subsequently multiplying group ratios along the spanning tree.
 
 Second, one can implement a weighted spectral method (that approximately solves a weighted least squares problem) where the weights focuses on the clean edges.
 
@@ -21,6 +21,10 @@ See details in
 For other possible usage of CEMP, see repo (https://github.com/yunpeng-shi/MPLS) and (https://github.com/yunpeng-shi/IRGCL).
 
 ## A variety of Groups
+``Z2`` folder is for Z2-synchronization with applications in correlation clustering.
+``SO2`` folder is for angular synchronization (SO(2) group). The metric of CEMP is chosen as geodesic distance in U(1).
+``SO3`` folder is for rotation synchronization (SO(3) group), or rotation averaging. The metric of CEMP is chosen as geodesic distance in SO(3).
+``SOd`` folder is for rotation synchronization (SO(d) group). The metric of CEMP is chosen as the difference in Frobenius norm.
 
 
 
