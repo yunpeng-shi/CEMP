@@ -11,16 +11,16 @@ CEMP not only classifies the clean and corrupted relative measurements (group ra
 ## CEMP Offers Various Ways for Solving Group Sync
 After estimating corruption levels <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{s_{ij}^* = d(g_{ij}, g_{ij}^*)}">, there are two ways to estimate the absolute group elements <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{g_{i}^*}">:
 
-First, one can build a weighted graph using the estimated corruption levels, and find its minimum spanning tree (MST) so that it's the cleanest spanning tree. Then, one can fix the first group element as identity, and find the rest of them by subsequently multiplying group ratios along the spanning tree.
+First, one can build a weighted graph using the estimated corruption levels, and find its minimum spanning tree (MST) so that it's the cleanest spanning tree. Then, one can fix the first group element as identity, and find the rest of them by subsequently multiplying group ratios along the spanning tree. It is called ``CEMP+MST``
 
-Second, one can implement a weighted spectral method (that approximately solves a weighted least squares problem) where the weights focuses on the clean edges.
+Second, one can implement a weighted spectral method (that approximately solves a weighted least squares problem) where the weights focuses on the clean edges. It is called ``CEMP+GCW``. Here GCW refers to the fact that we do spectral decomposition on the graph connection weight matrix.
 
 See details in
 [Robust Group Synchronization via Cycle-Edge Message Passing](https://link.springer.com/content/pdf/10.1007/s10208-021-09532-w.pdf), Gilad Lerman and Yunpeng Shi, Foundations of Computational Mathematics, 2021.
 
 For other possible usage of CEMP, see repo (https://github.com/yunpeng-shi/MPLS) and (https://github.com/yunpeng-shi/IRGCL).
 
-## A variety of Groups
+## A variety of Groups and Metrics
 ``Z2`` folder is for Z2-synchronization with applications in correlation clustering.
 
 ``SO2`` folder is for angular synchronization (SO(2) group). The metric of CEMP is chosen as geodesic distance in U(1).
@@ -34,15 +34,19 @@ For other possible usage of CEMP, see repo (https://github.com/yunpeng-shi/MPLS)
 ``IRGCL`` repository (https://github.com/yunpeng-shi/IRGCL) offers a fully-vectorized version of CEMP-Sn. It aims to solve the permutation synchronization/multi-object matching problem. It also includes a MPLS-like algorithm for permutation sync.
 
 
+## A Variety of Algorithms to Compare
 
+In most of above folders, we include in ``Algorithms`` subfolder that contains the implementation of the following methods.
 
-Here ``Spectral`` refers to eigenvector method for approximately solving least squares formulation. See [Angular Synchronization by Eigenvectors and Semidefinite Programming,](https://arxiv.org/abs/0905.3174) Amit Singer, Applied and Computational Harmonic Analysis, 2011 for details.
+``Spectral`` refers to eigenvector method for approximately solving least squares formulation. See [Angular Synchronization by Eigenvectors and Semidefinite Programming,](https://arxiv.org/abs/0905.3174) Amit Singer, Applied and Computational Harmonic Analysis, 2011 for details.
 
-``IRLS-GM`` refers to iteratively reweighted least squares (IRLS) that uses Geman-McClure loss function. See [Efficient and Robust Large-Scale Rotation Averaging](https://www.cv-foundation.org/openaccess/content_iccv_2013/papers/Chatterjee_Efficient_and_Robust_2013_ICCV_paper.pdf), Avishek Chatterjee and Venu Madhav Govindu, ICCV 2013 for details.
+``SDP`` refers to semi-definite relaxation method for approximately solving least squares formulation. See [Angular Synchronization by Eigenvectors and Semidefinite Programming,](https://arxiv.org/abs/0905.3174) Amit Singer, Applied and Computational Harmonic Analysis, 2011 for details.
+
+``IRLS`` refers to iteratively reweighted least squares (IRLS) that uses L1 loss function. It iteratively solves a weighted spectral methods, where the edge weights are updated as the reciprocal of the residues.
 
 ``IRLS-L0.5`` refers to iteratively reweighted least squares (IRLS) that uses L_1/2 loss function. See [Robust Relative Rotation Averaging](http://www.ee.iisc.ac.in/labs/cvl/papers/robustrelrotavg.pdf), Avishek Chatterjee and Venu Madhav Govindu, TPAMI, 2018 for details.
 
-``CEMP+MST``, ``CEMP+GCW``, ``MPLS`` refer to our methods. ``CEMP+GCW`` only appears in CEMP paper [Robust Group Synchronization via Cycle-Edge Message Passing](https://link.springer.com/content/pdf/10.1007/s10208-021-09532-w.pdf), Gilad Lerman and Yunpeng Shi, Foundations of Computational Mathematics, 2021. It combines CEMP with a weighted spectral method (using graph connection weight matrix).
+``CEMP+MST``, ``CEMP+GCW`` refer to our two post-processing methods after implementing CEMP. 
 
 ## A Variety of Corruption Models
 We provide 5 different corruption models. 3 for nonuniform topology and 2 for uniform toplogy (see ``Uniform_Topology.m`` and ``Nonuniform_Topology.m``). Uniform/Nonuniform toplogy refers to whether the corrupted subgraph is Erdos Renyi or not. In other words, the choice of Uniform/Nonuniform toplogy decides how to select edges for corruption. In ``Uniform_Topology.m``, two nodes are connected with probability ``p``. Then edges are independently drawn with probability ``q`` for corruption. In ``Nonuniform_Topology.m``, two nodes are connected with probability ``p``. Then with probability ``p_node_crpt`` a node is selected so that its neighboring edges are candidates for corruption. Next, for each selected node, with probability ``p_edge_crpt`` an edge (among the neighboring edges of the selected node) is corrupted. This is a more malicious scenario where corrupted edges have cluster behavior (so local coruption level can be extremely high). 
