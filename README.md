@@ -2,9 +2,9 @@
 
 ## Introduction and References
 
-Cycle-edge message passing (CEMP) is a very useful algorithm for robust group synchronization (GS). Examples of GS problem include correlation clustering (Z2 group), phase synchronization (SO(2) group), rotation averaging (SO(3) group), and multi-object matching (Sn group).
+Cycle-edge message passing (CEMP) is a very useful algorithm for robust group synchronization (GS). Examples of GS problem include ``correlation clustering`` (Z2 group), ``phase synchronization`` (SO(2) group), ``rotation averaging`` (SO(3) group), and ``multi-object matching`` (Sn group).
 
-
+The GS problem asks to recover group elements <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{g_{i}}"> from their noisy/corrupted relative measurements <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{g_{ij}"> (ideally equals to <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{g_{i}g_{j}^{-1}}">).
 
 [Robust Group Synchronization via Cycle-Edge Message Passing](https://link.springer.com/content/pdf/10.1007/s10208-021-09532-w.pdf), Gilad Lerman and Yunpeng Shi, Foundations of Computational Mathematics, 2021.
 
