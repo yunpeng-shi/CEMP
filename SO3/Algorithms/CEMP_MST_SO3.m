@@ -13,7 +13,7 @@
 
 %% 
 %% Output:
-%% R_est: Estimated corruption levels of all edges
+%% R_est: Estimated absolute rotations (3x3xn)
 
 %% Reference
 %% [1] Gilad Lerman and Yunpeng Shi. "Robust Group Synchronization via Cycle-Edge Message Passing" arXiv preprint, 2019
