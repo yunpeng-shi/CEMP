@@ -66,7 +66,7 @@ In ``Nonuniform_Topology.m``, there are the following 3 options of ``crpt_type``
 
 ## Implementation of CEMP
 
-The demo code uses the following function for implementing CEMP:
+The demo code in each group folder uses the following function for implementing CEMP:
 ```
 CEMP(Ind, RijMat, parameters)
 ```
