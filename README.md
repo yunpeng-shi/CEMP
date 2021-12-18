@@ -44,8 +44,6 @@ In most of above folders, we include in ``Algorithms`` subfolder that contains t
 
 ``IRLS`` refers to iteratively reweighted least squares (IRLS) that uses L1 loss function. It iteratively solves a weighted spectral methods, where the edge weights are updated as the reciprocal of the residues.
 
-``IRLS-L0.5`` refers to iteratively reweighted least squares (IRLS) that uses L_1/2 loss function. See [Robust Relative Rotation Averaging](http://www.ee.iisc.ac.in/labs/cvl/papers/robustrelrotavg.pdf), Avishek Chatterjee and Venu Madhav Govindu, TPAMI, 2018 for details.
-
 ``CEMP+MST``, ``CEMP+GCW`` refer to our two post-processing methods after implementing CEMP. 
 
 ## A Variety of Corruption Models
