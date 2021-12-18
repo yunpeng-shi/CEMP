@@ -42,7 +42,7 @@ In most of above folders, we include in ``Algorithms`` subfolder that contains t
 
 ``SDP`` refers to semi-definite relaxation method for approximately solving least squares formulation. See [Angular Synchronization by Eigenvectors and Semidefinite Programming,](https://arxiv.org/abs/0905.3174) Amit Singer, Applied and Computational Harmonic Analysis, 2011 for details.
 
-``IRLS`` refers to iteratively reweighted least squares (IRLS) that uses L1 loss function. It iteratively solves a weighted spectral methods, where the edge weights are updated as the reciprocal of the residues.
+``IRLS`` refers to iteratively reweighted least squares (IRLS) that uses L1 loss function. It iteratively solves a weighted spectral methods, where the edge weights are updated as the reciprocal of the residuals.
 
 ``CEMP+MST``, ``CEMP+GCW`` refer to our two post-processing methods after implementing CEMP. 
 
