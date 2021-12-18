@@ -9,7 +9,7 @@ The GS problem asks to recover group elements <img src="https://render.githubuse
 CEMP not only classifies the clean and corrupted relative measurements (group ratios), but also measures their corruption levels. That is, for each edge (i,j), CEMP estimates the distance of <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{g_{ij}}"> from its ground truth. See details in
 [Robust Group Synchronization via Cycle-Edge Message Passing](https://link.springer.com/content/pdf/10.1007/s10208-021-09532-w.pdf), Gilad Lerman and Yunpeng Shi, Foundations of Computational Mathematics, 2021.
 
-After estimating corruption levels <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{s_{ij} = d(g_{ij}, g_{ij}^{gt)}">.
+After estimating corruption levels <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{s_{ij}^* = d(g_{ij}, g_{ij}^*)}"> (star means ground truth), there are two ways to estimate the absolute group elements <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{g_{i}}">:
 
 
 
