@@ -1,4 +1,4 @@
-Cycle-Edge Message Passing for Angular (SO(2)) Synchronization
+#Cycle-Edge Message Passing for Angular (SO(2)) Synchronization
 
 
 ```
