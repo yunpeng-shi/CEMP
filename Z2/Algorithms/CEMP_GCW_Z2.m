@@ -1,7 +1,7 @@
 %% Author: Yunpeng Shi
-%% © Regents of the University of Minnesota. All rights reserved
+
 %%------------------------------------------------
-%% Cycle-Edge Message Passing for Rotation Synchronization
+%% Cycle-Edge Message Passing for Z2 Synchronization
 %%------------------------------------------------
 %% Input Parameters: 
 %% Ind: edge_num by 2 "edge indices matrix". Each row is the index of an edge (i,j) that is sorted as (1,2), (1,3), (1,4),... (2,3), (2,4),.... 
