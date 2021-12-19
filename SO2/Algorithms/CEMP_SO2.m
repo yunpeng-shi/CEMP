@@ -54,9 +54,6 @@ function[SVec] = CEMP_SO2(Ind,thetaij,parameters)
     Ind_ki = zeros(1,m_cycle);
 
 
-    % store pairwise directions in 3 by n by n tensor
-    % construct edge index matrix (for 2d-to-1d index conversion)
-
 
     IndMat = sparse(Ind_i,Ind_j,(1:m),n,n);
     IndMat = IndMat+IndMat';
@@ -65,13 +62,6 @@ function[SVec] = CEMP_SO2(Ind,thetaij,parameters)
     thetaji = mod(-thetaij, 2*pi);
     thetaijMat = thetaijMat + sparse(Ind_j, Ind_i, thetaji,n,n);
 
-
-    % CoIndMat{l}= triangles sampled that contains l-th edge
-    % e.g. l=(3,5), then CoIndMat{l}=[2,9,8,...] means that...
-    % triangles 352, 359, 358,... are sampled
-
-
-   % disp('cumind')
 
     
     jkvec = zeros(1,m_cycle);
