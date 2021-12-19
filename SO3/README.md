@@ -1,4 +1,12 @@
-CEMP for Rotation Averaging
+# CEMP for SO(3) synchronization (Rotation Averaging)
+
+The metric for CEMP is chosen as the geodesic distance on SO(3).
+
+## Usage
+
+Check out the code in ``Examples/Compare_algorithms_SO3.m``, and the following is a sample output.
+
+
 
 ```
     Algorithms    MeanError 
