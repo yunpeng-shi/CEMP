@@ -8,7 +8,7 @@ The GS problem asks to recover group elements <img src="https://render.githubuse
 
 CEMP not only classifies the clean and corrupted relative measurements (group ratios), but also measures their corruption levels. That is, for each edge (i,j), CEMP estimates the distance of <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{g_{ij}}"> from its ground truth. The following is a typical scatter plot (when 50% of edges are corrupted) of CEMP-estimated corruption levels v.s the ground truth ones, indicating exact estimation.
 
-<img src="https://github.com/yunpeng-shi/CEMP/blob/main/scatter.jpg" width="500" height="400">
+<img src="https://github.com/yunpeng-shi/CEMP/blob/main/scatter.eps" width="500" height="400">
 
 ## CEMP Offers Various Ways for Solving Group Sync
 After estimating corruption levels <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{s_{ij}^* = d(g_{ij}, g_{ij}^*)}">, there are two ways to estimate the absolute group elements <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{g_{i}^*}">:
