@@ -1,6 +1,6 @@
 # CEMP for SO(3) synchronization (Rotation Averaging)
 
-The metric for CEMP is chosen as the geodesic distance on SO(3).
+The metric for CEMP is chosen as the ``geodesic distance`` on SO(3).
 
 ## Usage
 
