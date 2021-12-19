@@ -54,10 +54,6 @@ function[theta_est] = CEMP_MST_SO2(Ind,thetaij,parameters)
     Ind_ki = zeros(1,m_cycle);
 
 
-    % store pairwise directions in 3 by n by n tensor
-    % construct edge index matrix (for 2d-to-1d index conversion)
-
-
     IndMat = sparse(Ind_i,Ind_j,(1:m),n,n);
     IndMat = IndMat+IndMat';
 
@@ -140,7 +136,7 @@ function[theta_est] = CEMP_MST_SO2(Ind,thetaij,parameters)
     [MST,~]=graphminspantree(SMatij);
     AdjTree = logical(MST+MST');
     
-    % compute Ri by multiplying Rij along the spanning tree
+    % compute thetai by multiplying thetaij along the spanning tree
     rootnodes = 1;
     added=zeros(1,n);
     theta_est = zeros(n,1);
