@@ -115,7 +115,7 @@ function[theta_est] = CEMP_GCW_SO2(Ind,thetaij,parameters)
         Sjk = SVec(Ind_jk);
         Ski = SVec(Ind_ki);
         S_sum = Ski+Sjk;
-        % compute weight matrix (nsample by m)
+        
         Weight_vec = exp(-beta*S_sum);
         S0_weight = S0_long.*Weight_vec;
 
