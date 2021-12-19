@@ -11,7 +11,7 @@ CEMP not only classifies the clean and corrupted relative measurements (group ra
 <img src="https://github.com/yunpeng-shi/CEMP/blob/main/scatter.jpg" width="500" height="400">
 
 ## CEMP Offers Various Ways for Solving Group Sync
-After estimating corruption levels <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{s_{ij}^* = d(g_{ij}, g_{ij}^*)}">, there are two ways to estimate the absolute group elements <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{g_{i}^*}">:
+After estimating corruption levels <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{s_{ij}^* = d(g_{ij}, g_{ij}^*)}">, there are two primary ways to estimate the absolute group elements <img src="https://render.githubusercontent.com/render/math?math=\color{red} \mathbf{g_{i}^*}">:
 
 First, one can build a weighted graph using the estimated corruption levels, and find its minimum spanning tree (MST) so that it's the cleanest spanning tree. Then, one can fix the first group element as identity, and find the rest of them by subsequently multiplying group ratios along the spanning tree. It is called ``CEMP+MST``
 
