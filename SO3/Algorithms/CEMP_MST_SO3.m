@@ -52,7 +52,7 @@ function R_est = CEMP_MST_SO3(Ind,RijMat,parameters)
     Ind_ki = zeros(1,m_cycle);
     
     RijMat4d = zeros(3,3,n,n);
-    % store pairwise directions in 3 by n by n tensor
+    
     % construct edge index matrix (for 2d-to-1d index conversion)
     for l = 1:m
         i=Ind_i(l);j=Ind_j(l);
@@ -117,7 +117,7 @@ function R_est = CEMP_MST_SO3(Ind,RijMat,parameters)
         Sjk = SVec(Ind_jk);
         Ski = SVec(Ind_ki);
         S_sum = Ski+Sjk;
-        % compute weight matrix (nsample by m)
+        
         Weight_vec = exp(-beta*S_sum);
         S0_weight = S0_long.*Weight_vec;
     
