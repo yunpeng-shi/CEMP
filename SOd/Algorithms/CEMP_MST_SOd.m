@@ -1,14 +1,16 @@
 %% Author: Yunpeng Shi
 %%------------------------------------------------
-%% Cycle-Edge Message Passing for Rotation Synchronization
+%% Cycle-Edge Message Passing for SO(d) Synchronization
 %%------------------------------------------------
 %% Input Parameters: 
 %% Ind: edge_num by 2 "edge indices matrix". Each row is the index of an edge (i,j) that is sorted as (1,2), (1,3), (1,4),... (2,3), (2,4),.... 
 %% edge_num is the number of edges.
-%% RijMat: 3 by 3 by edge_num tensor that stores the given relative rotations corresponding to Ind
-%% CEMP_parameters.max_iter: the number of iterations of CEMP
-%% CEMP_parameters.reweighting: the sequence of reweighting parameter beta_t
-%% 
+%% RijMat: d by d by edge_num tensor that stores the given relative rotations corresponding to Ind
+%% parameters.beta_init: initial reweighting parameter beta for CEMP
+%% parameters.beta_max: the maximal reweighting parameter beta for CEMP
+%% parameters.rate: beta is updated by beta = beta*rate until it hits beta_max
+
+
 %% Output:
 %% R_est: Estimated corruption levels of all edges
 
