@@ -53,7 +53,7 @@ function R_est = CEMP_GCW_SOd(Ind,RijMat,parameters)
     Ind_ki = zeros(1,m_cycle);
     
     RijMat4d = zeros(d,d,n,n);
-    % store pairwise directions in 3 by n by n tensor
+    % store pairwise directions in d by n by n tensor
     % construct edge index matrix (for 2d-to-1d index conversion)
     for l = 1:m
         i=Ind_i(l);j=Ind_j(l);
@@ -62,12 +62,6 @@ function R_est = CEMP_GCW_SOd(Ind,RijMat,parameters)
         IndMat(i,j)=l;
         IndMat(j,i)=-l;
     end
-    
-    
-    
-    % CoIndMat{l}= triangles sampled that contains l-th edge
-    % e.g. l=(3,5), then CoIndMat{l}=[2,9,8,...] means that...
-    % triangles 352, 359, 358,... are sampled
     
     
     
