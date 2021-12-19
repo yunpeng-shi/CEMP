@@ -1,10 +1,10 @@
 # Cycle-Edge Message Passing for Angular (SO(2)) Synchronization
 
-The metric for CEMP is chosen as the geodesic distance on U(1).
+The metric for CEMP is chosen as the ``geodesic distance on U(1)``.
 
 ## Usage
 
-Check out the code in Examples/Compare_algorithms_SO2.m, and the following is the sample output.
+Check out the code in ``Examples/Compare_algorithms_SO2.m``, and the following is the sample output.
 
 
 ```
