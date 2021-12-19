@@ -1,6 +1,6 @@
 # CEMP for SO(d) synchronization
 
-The metric for CEMP is chosen as the Frobenious norm of the difference (regard as Stiefel manifold). 
+The metric for CEMP is chosen as the ``Frobenious norm of the difference`` (regard as Stiefel manifold). 
 
 ## Usage
 
