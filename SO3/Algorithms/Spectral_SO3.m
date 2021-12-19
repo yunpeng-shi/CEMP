@@ -1,5 +1,6 @@
 %% Author: Yunpeng Shi
-%% 
+%%------------------------------------------------
+%% eigenvector method for rotation synchronization
 %%------------------------------------------------
 %% Input Parameters: 
 %% Ind: edge_num by 2 "edge indices matrix". Each row is the index of an edge (i,j). that is sorted as (1,2), (1,3), (1,4),... (2,3), (2,4),.... 
