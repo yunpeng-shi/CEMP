@@ -1,7 +1,7 @@
 # Cycle-Edge Message Passing for Z2 Synchronization
 
 ## Usage
-Download matlab files to the same directory. Checkout and run the following demo code. 
+Checkout and run the following demo code. 
 ```
 Examples/Compare_algorithms_Z2.m
 ```
@@ -17,6 +17,4 @@ __________    _________
 
 ```
 
-Here ``Spectral`` and ``SDP`` refers to eigenvector method and SDP relaxation method for approximately solving least squares formulation. 
-See [Angular Synchronization by Eigenvectors and Semidefinite Programming,](https://arxiv.org/abs/0905.3174) Amit Singer, Applied and Computational Harmonic Analysis, 2011 for details.
 We do not recommend ``CEMP+MST`` for discrete groups and thus only include ``CEMP+GCW``.
