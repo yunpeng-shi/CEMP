@@ -25,15 +25,15 @@ For other possible usage of CEMP, see repo (https://github.com/yunpeng-shi/MPLS)
 ## A variety of Groups and Metrics
 [``Z2``](https://github.com/yunpeng-shi/CEMP/tree/main/Z2) folder is for Z2-synchronization with applications in correlation clustering.
 
-``SO2`` folder is for angular synchronization (SO(2) group). The metric of CEMP is chosen as geodesic distance in U(1).
+[``SO2``](https://github.com/yunpeng-shi/CEMP/tree/main/SO2) folder is for angular synchronization (SO(2) group). The metric of CEMP is chosen as geodesic distance in U(1).
 
-``SO3`` folder is for rotation synchronization (SO(3) group), or rotation averaging. The metric of CEMP is chosen as geodesic distance in SO(3).
+[``SO3``](https://github.com/yunpeng-shi/CEMP/tree/main/SO3) folder is for rotation synchronization (SO(3) group), or rotation averaging. The metric of CEMP is chosen as geodesic distance in SO(3).
 
-``SOd`` folder is for general SO(d) synchronization. The metric of CEMP is chosen as the difference in Frobenius norm.
+[``SOd``](https://github.com/yunpeng-shi/CEMP/tree/main/SOd) folder is for general SO(d) synchronization. The metric of CEMP is chosen as the difference in Frobenius norm.
 
-[``MPLS`` repository](https://github.com/yunpeng-shi/MPLS) offers a faster implementation of CEMP-SO(3) with sampled 3-cycles (not like this repo that uses all 3-cycles). It also includes the state-of-the-art rotation averaging method MPLS.
+[``MPLS``](https://github.com/yunpeng-shi/MPLS) repository offers a faster implementation of CEMP-SO(3) with sampled 3-cycles (not like this repo that uses all 3-cycles). It also includes the state-of-the-art rotation averaging method MPLS.
 
-[``IRGCL`` repository](https://github.com/yunpeng-shi/IRGCL) offers a fully-vectorized version of CEMP-Sn. It aims to solve the permutation synchronization/multi-object matching problem. It also includes a MPLS-like algorithm (called IRGCL) for permutation sync.
+[``IRGCL``](https://github.com/yunpeng-shi/IRGCL) repository offers a fully-vectorized version of CEMP-Sn. It aims to solve the permutation synchronization/multi-object matching problem. It also includes a MPLS-like algorithm (called IRGCL) for permutation sync.
 
 
 ## A Variety of Algorithms to Compare
