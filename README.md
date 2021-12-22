@@ -23,7 +23,7 @@ See details in
 For other possible usage of CEMP, see repo (https://github.com/yunpeng-shi/MPLS) and (https://github.com/yunpeng-shi/IRGCL).
 
 ## A variety of Groups and Metrics
-``Z2`` folder is for Z2-synchronization with applications in correlation clustering.
+[``Z2``](https://github.com/yunpeng-shi/CEMP/tree/main/Z2) folder is for Z2-synchronization with applications in correlation clustering.
 
 ``SO2`` folder is for angular synchronization (SO(2) group). The metric of CEMP is chosen as geodesic distance in U(1).
 
