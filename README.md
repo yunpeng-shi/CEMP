@@ -31,7 +31,7 @@ For other possible usage of CEMP, see repo (https://github.com/yunpeng-shi/MPLS)
 
 ``SOd`` folder is for general SO(d) synchronization. The metric of CEMP is chosen as the difference in Frobenius norm.
 
-``MPLS`` repository (https://github.com/yunpeng-shi/MPLS) offers a faster implementation of CEMP-SO(3) with sampled 3-cycles (not like this repo that uses all 3-cycles). It also includes the state-of-the-art rotation averaging method MPLS.
+[``MPLS`` repository](https://github.com/yunpeng-shi/MPLS) offers a faster implementation of CEMP-SO(3) with sampled 3-cycles (not like this repo that uses all 3-cycles). It also includes the state-of-the-art rotation averaging method MPLS.
 
 ``IRGCL`` repository (https://github.com/yunpeng-shi/IRGCL) offers a fully-vectorized version of CEMP-Sn. It aims to solve the permutation synchronization/multi-object matching problem. It also includes a MPLS-like algorithm (called IRGCL) for permutation sync.
 
