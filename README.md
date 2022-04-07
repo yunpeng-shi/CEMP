@@ -1,5 +1,8 @@
 # Robust Group Synchronization via Cycle-Edge Message Passing (CEMP)
 
+## News:
+The python3 version of CEMP-SO(3) for rotation averaging is released at [CEMP_SO3_Python](https://github.com/MattyChoi/CEMP_SO3_Python) !
+
 ## CEMP Has Broad Applications
 
 Cycle-edge message passing (CEMP) is a very useful algorithm for robust group synchronization (GS). Examples of GS problem include ``correlation clustering`` (Z2 group), ``phase/angular synchronization`` (SO(2) group), ``rotation averaging`` (SO(3) group), and ``multi-object matching`` (Sn group).
