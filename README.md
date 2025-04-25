@@ -1,6 +1,8 @@
 # Robust Group Synchronization via Cycle-Edge Message Passing (CEMP)
 
 ## News:
+For better rotation averaging solver in SO(3), we recommend using a CEMP-based weighted least squares solver [MPLS](https://github.com/yunpeng-shi/MPLS). It is the current SOTA in robust rotation averaging that can handle the case where almost 90% of edges are randomly corrupted. We have not noticed any other methods can do this!
+
 The python3 version of CEMP-SO(3) for rotation averaging is released at [CEMP_SO3_Python](https://github.com/MattyChoi/CEMP_SO3_Python) !
 
 ## CEMP Has Broad Applications
